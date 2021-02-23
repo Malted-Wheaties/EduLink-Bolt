@@ -12,3 +12,6 @@ C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\Newtonsoft.Json
 C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\Newtonsoft.Json.xml
 C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink Bolt.csproj.CopyComplete
 C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink_Bolt.MainForm.resources
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\CircularProgressBar.dll
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\WinFormAnimation.dll
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\CircularProgressBar.xml

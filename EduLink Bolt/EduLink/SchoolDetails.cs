@@ -10,35 +10,38 @@ using System.Windows.Forms;
 
 namespace EduLink
 {
-    class ProvisioningBody
+    class DetailsBody
     {
         [JsonProperty("jsonrpc")] public string JSONRPC { get; set; }
         [JsonProperty("method")] public string Method { get; set; }
-        [JsonProperty("params")] public ProvisioningBodyParams Params { get; set; }
+        [JsonProperty("params")] public DetailsBodyParams Params { get; set; }
         [JsonProperty("uuid")] public string UUID { get; set; }
         [JsonProperty("id")] public string ID { get; set; }
     }
-    class ProvisioningBodyParams { 
-        [JsonProperty("code")] public string SchoolCode { get; set; }
+    class DetailsBodyParams
+    {
+        [JsonProperty("establishment_id")] public string EstablishmentID { get; set; }
+        [JsonProperty("from_app")] public bool FromApp { get; set; }
     }
 
-    public class Provisioning : Form
+    public class SchoolDetails : Form
     {
-        private static HttpClient client = new HttpClient(); // https://www.aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/
+        private static HttpClient client = new HttpClient();
 
-        public static async Task MakeRequest() // https://stackoverflow.com/questions/23585919/send-json-via-post-in-c-sharp-and-receive-the-json-returned
+        public static async Task MakeRequest()
         {
-            EduLink_Bolt.MainForm.loginForm.lblStatus.Text = "Sending provisioning request...";
+            EduLink_Bolt.MainForm.loginForm.lblStatus.Text = "Sending school details request...";
 
-            string uri = "https://provisioning.edulinkone.com/?method=School.FromCode/";
+            string uri = UserInfo.Server + "?method=EduLink.SchoolDetails";
 
-            ProvisioningBody payload = new ProvisioningBody
+            DetailsBody payload = new DetailsBody
             {
                 JSONRPC = "2.0",
-                Method = "School.FromCode",
-                Params = new ProvisioningBodyParams
+                Method = "EduLink.SchoolDetails",
+                Params = new DetailsBodyParams
                 {
-                    SchoolCode = UserInfo.SchoolCode
+                    EstablishmentID = "2",
+                    FromApp = false
                 },
                 UUID = System.Guid.NewGuid().ToString(),
                 ID = "1"
@@ -54,19 +57,18 @@ namespace EduLink
             {
                 EduLink_Bolt.MainForm.loginForm.lblStatus.Text = String.Empty;
                 string message = "The server responded with null";
-                string caption = "Provisioning Error";
+                string caption = "School Details Error";
                 DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (result == DialogResult.Retry)
                 {
                     await MakeRequest();
                 }
-
             }
             else if (!httpResponse.IsSuccessStatusCode)
             {
                 EduLink_Bolt.MainForm.loginForm.lblStatus.Text = String.Empty;
                 string message = $"The server responded with code: {httpResponse.StatusCode}";
-                string caption = "Provisioning Error";
+                string caption = "School Details Error";
                 DialogResult result = MessageBox.Show(message, caption, MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (result == DialogResult.Retry)
                 {
@@ -82,15 +84,18 @@ namespace EduLink
                 {
                     EduLink_Bolt.MainForm.loginForm.lblStatus.Text = String.Empty;
                     string message = responseJSON["result"]["error"].Value<string>();
-                    string caption = "Server Provisioning Error";
+                    string caption = "Server School Details Error";
                     MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    UserInfo.Server = responseJSON["result"]["school"]["server"].Value<string>();
-                    await SchoolDetails.MakeRequest();
+                    UserInfo.SchoolName = responseJSON["result"]["establishment"]["name"].Value<string>();
+                    UserInfo.SchoolLogoB64 = responseJSON["result"]["establishment"]["logo"].Value<string>();
+
+                    await Login.MakeRequest();
                 }
             }
         }
+
     }
 }
