@@ -1,0 +1,17 @@
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\EduLink Bolt.exe.config
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\EduLink Bolt.exe
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\EduLink Bolt.pdb
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink Bolt.csprojAssemblyReference.cache
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink_Bolt.LoginForm.resources
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink_Bolt.Properties.Resources.resources
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink Bolt.csproj.GenerateResource.cache
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink Bolt.csproj.CoreCompileInputs.cache
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink Bolt.exe
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink Bolt.pdb
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink Bolt.csproj.CopyComplete
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\obj\Debug\EduLink_Bolt.MainForm.resources
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\CircularProgressBar.dll
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\WinFormAnimation.dll
+C:\Users\user01\source\repos\EduLink Bolt\EduLink Bolt\bin\Debug\CircularProgressBar.xml
